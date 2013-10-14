@@ -1,6 +1,10 @@
 ![image](http://antarcticdesign.files.wordpress.com/2013/10/logo.png?w=295)
 
+
 Motif finding algorithm and tool to find functionally relevant motifs in workflows.
+
+
+[![Download](https://antarcticdesign.files.wordpress.com/2013/10/download.png?w=277)](https://github.com/ISA-tools/Automacron/releases/tag/1.0)
 
 ###Paper
 
@@ -8,7 +12,10 @@ The work is published in IEEE Transactions on Visualization and Computer Graphic
 
 
 **Visual Compression of Workflow Visualizations with Automated Detection of Macro Motifs**
-*Eamonn Maguire‚ Philippe Rocca−Serra‚ Susanna−Assunta Sansone‚ Jim Davies and Min Chen* **In IEEE Transactions on Visualization and Computer Graphics. 2013.**
+
+*Eamonn Maguire‚ Philippe Rocca−Serra‚ Susanna−Assunta Sansone‚ Jim Davies and Min Chen* 
+
+**In IEEE Transactions on Visualization and Computer Graphics. 2013.**
 
 
 ###Video
