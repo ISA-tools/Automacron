@@ -1,0 +1,6 @@
+Source Name	Protocol REF	Sample Name	Protocol REF	Extract Name	Protocol REF	Assay Name	Protocol REF	Scan Name	Protocol REF	Derived Data File
+source1	sampling	sample1	extraction	extract1	sequencing	assay1	scan	scan1	normalization	file1.bed
+source1	sampling	sample2	extraction	extract2	sequencing	assay1	scan	scan1	normalization	file1.bed
+source2	sampling	sample3	extraction	extract3	sequencing	assay2	scan	scan2	normalization	file2.bed
+source2	sampling	sample3	extraction	extract3	sequencing	assay2	scan	scan3	normalization	file2.bed
+source2	sampling	sample4	extraction	extract3	sequencing	assay2	scan	scan2	normalization	file2.bed

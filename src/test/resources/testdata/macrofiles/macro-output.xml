@@ -1,0 +1,22 @@
+<automacron>
+    <macros>
+        <macro name="">
+            <motif>Protocol REF:{DERIVES#Labeled Extract Name:{DERIVES#Label}}</motif>
+            <glyphs>
+                <glyph size="" file="data/images/detailed--1000437122.png"/>
+            </glyphs>
+        </macro>
+        <macro name="">
+            <motif>Protocol REF:{DERIVES#Labeled Extract Name:{DERIVES#Label:{TRANSFORMED_BY#Protocol REF:{DERIVES#Hybridization Assay Name}}}}</motif>
+            <glyphs>
+                <glyph size="" file="data/images/detailed--1381524939.png"/>
+            </glyphs>
+        </macro>
+        <macro name="">
+            <motif>Label:{TRANSFORMED_BY#Protocol REF:{DERIVES#Hybridization Assay Name:{DERIVES#Scan Name:{DERIVES#Array Data File}}}}</motif>
+            <glyphs>
+                <glyph size="" file="data/images/detailed--741526065.png"/>
+            </glyphs>
+        </macro>
+    </macros>
+</automacron>

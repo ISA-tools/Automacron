@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>AutoMacron</name>
+
+    <groupId>org.isatools</groupId>
+    <artifactId>automacron</artifactId>
+    <version>0.1.3</version>
+
+    <packaging>bundle</packaging>
+
+    <issueManagement>
+        <system>Bitbucket</system>
+        <url>https://bitbucket.org/eamonnmag/automacron/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>maguire</id>
+            <name>Eamonn Maguire</name>
+            <email>eamonnmag@gmail.com</email>
+            <organization>ISA tools team</organization>
+            <organizationUrl>http://isa-tools.org</organizationUrl>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>LGPL</name>
+            <distribution>3</distribution>
+        </license>
+    </licenses>
+
+    <repositories>
+        <repository>
+            <id>oerc</id>
+            <url>http://frog.oerc.ox.ac.uk:8080/nexus-2.1.2/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <executable>apt</executable>
+                    <fork>true</fork>
+                    <debug>true</debug>
+                    <compilerArguments>
+                        <s>${project.build.directory}</s>
+                    </compilerArguments>
+                    <meminitial>128m</meminitial>
+                    <maxmem>512m</maxmem>
+                </configuration>
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<artifactId>maven-assembly-plugin</artifactId>-->
+                <!--<version>2.4</version>-->
+                <!--<configuration>-->
+                    <!--<archive>-->
+                        <!--<manifest>-->
+                            <!--<mainClass>org.isatools.macros.graph.graphloader.GraphLoader</mainClass>-->
+                        <!--</manifest>-->
+                    <!--</archive>-->
+                    <!--<archiverConfig>-->
+                        <!--<duplicateBehavior>skip</duplicateBehavior>-->
+                    <!--</archiverConfig>-->
+                    <!--<descriptorRefs>-->
+                        <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
+                    <!--</descriptorRefs>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>make-assembly</id>-->
+                        <!--<phase>package</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>attached</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>2.0.0</version>
+                <extensions>true</extensions>
+
+                <configuration>
+                    <instructions>
+                        <Import-Package>
+                            !javax.media.*,
+                            !org.neo4j.graphdb.factory.*,
+                            !org.neo4j.kernel.impl.util.*,
+                            !org.neo4j.graphdb.*,
+                            !ch.qos.*,
+                            !com.mchange.*,
+                            !org.slf4j.*,
+                            !com.sun.*,
+                            !sun.misc.*,
+                            !org.jboss.*
+                            *</Import-Package>
+                        <Export-Package>org.isatools.macros.plugin</Export-Package>
+                        <Bundle-Activator>org.isatools.macros.plugin.Activator</Bundle-Activator>
+                        <Embed-Dependency>
+                            *;scope=compile|runtime
+                        </Embed-Dependency>
+
+                        <Embed-Transitive>true</Embed-Transitive>
+                        <Bundle-Vendor>ISA tools team</Bundle-Vendor>
+                    </instructions>
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j</artifactId>
+            <version>1.8.M07</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.isatools</groupId>
+            <artifactId>ISAcreator</artifactId>
+            <version>1.7.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.isatools</groupId>
+            <artifactId>SpreadsheetManipulator</artifactId>
+            <version>0.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.mxgraph</groupId>
+            <artifactId>jgraphx</artifactId>
+            <version>1.10.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jee.viz</groupId>
+            <artifactId>vizapp</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>colt</groupId>
+            <artifactId>colt</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>prefuse</groupId>
+            <artifactId>prefuse</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>oerc-repo</id>
+            <name>OeRC Maven repository</name>
+            <url>http://frog.oerc.ox.ac.uk:8080/nexus-2.1.2/content/repositories/releases</url>
+        </repository>
+    </distributionManagement>
+
+</project>

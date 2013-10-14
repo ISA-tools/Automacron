@@ -1,0 +1,1 @@
+java -jar -Xms1048m -Xmx4024m -XX:PermSize=128m -XX:MaxPermSize=512m automacron-0.1-jar-with-dependencies.jar
