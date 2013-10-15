@@ -4,7 +4,7 @@
 Motif finding algorithm and tool to find functionally relevant motifs in workflows.
 
 
-[![Download](https://antarcticdesign.files.wordpress.com/2013/10/download.png?w=277)](https://github.com/ISA-tools/Automacron/releases/tag/1.0)
+[![Download](https://antarcticdesign.files.wordpress.com/2013/10/download2.png)](https://github.com/ISA-tools/Automacron/releases/tag/1.0)
 
 ###Paper
 
