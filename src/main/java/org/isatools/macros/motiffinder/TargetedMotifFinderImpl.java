@@ -37,8 +37,6 @@ public class TargetedMotifFinderImpl extends AlternativeCompleteMotifFinder {
 
         Motif correspondingBlock = findMotifBlock(motifBlockAsString);
 
-        System.out.println("Checking: " + motifBlockAsString);
-
         if (targetedMotifPatterns.contains(motifBlockAsString)) {
             if (correspondingBlock == null) {
                 if (!motifBlockAsString.isEmpty()) {

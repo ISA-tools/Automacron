@@ -94,7 +94,7 @@ public class GraphMLCreator {
         String edgeValue2 = String.valueOf(fromNode.getId()) + String.valueOf(toNode.getId());
         if (!addedEdges.contains(edgeValue1) && !addedEdges.contains(edgeValue2)) {
             StringBuilder edgeSection = new StringBuilder();
-            edgeSection.append("<edge source=\"" + fromNode.getId() + "\" target=\"" + toNode.getId() + "\"/>");
+            edgeSection.append("<edge source=\"").append(fromNode.getId()).append("\" target=\"").append(toNode.getId()).append("\"/>");
             edgeInformation.add(edgeSection.toString());
             addedEdges.add(edgeValue1);
         }
@@ -108,7 +108,7 @@ public class GraphMLCreator {
 
         outputAttributes(graph);
 
-        graph.append("<graph edgedefault=\"" + (directed ? "directed" : "undirected") + "\">");
+        graph.append("<graph edgedefault=\"").append(directed ? "directed" : "undirected").append("\">");
         graph.append(createConcatenatedStringFromList(Collections.synchronizedList(nodeInformation)));
         graph.append(createConcatenatedStringFromList(Collections.synchronizedList(edgeInformation)));
 
@@ -129,8 +129,7 @@ public class GraphMLCreator {
     private void outputAttributes(StringBuilder output) {
         attributeToType.put("id", "integer");
         for (String attribute : attributeToType.keySet()) {
-            output.append("<key id=\"" + attribute + "\" for=\"node\" attr.name=\""
-                    + attribute + "\" attr.type=\"" + attributeToType.get(attribute) + "\"/>");
+            output.append("<key id=\"").append(attribute).append("\" for=\"node\" attr.name=\"").append(attribute).append("\" attr.type=\"").append(attributeToType.get(attribute)).append("\"/>");
         }
     }
 
