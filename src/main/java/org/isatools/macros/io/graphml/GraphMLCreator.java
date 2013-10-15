@@ -78,11 +78,13 @@ public class GraphMLCreator {
 
     private String getDefaultImage(Node node) {
         if (attributeToType.keySet().contains("image")) {
-            String property = node.getProperty("image").toString();
-            if (property.contains("&")) {
-                property = property.replaceAll("&", "&amp;");
+            if (node.hasProperty("image")) {
+                String property = node.getProperty("image").toString();
+                if (property.contains("&")) {
+                    property = property.replaceAll("&", "&amp;");
+                }
+                return property;
             }
-            return property;
         }
         return "";
     }

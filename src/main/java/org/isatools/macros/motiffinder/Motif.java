@@ -65,7 +65,7 @@ public class Motif implements Comparable<Motif>, Serializable {
         this.inputNodeType = motif.getInputNodeType();
         this.depth = motif.getDepth();
 
-        this.subMotifs = motif.getSubMotifs();
+        this.subMotifs = new ArrayList<Motif>(motif.getSubMotifs());
 
         this.relatedNodeIds = new HashSet<Set<Long>>(motif.getRelatedNodeIds());
     }
@@ -257,19 +257,8 @@ public class Motif implements Comparable<Motif>, Serializable {
 
         Motif motif = (Motif) o;
 
-        if (depth != motif.depth) return false;
-        if (inputNode != motif.inputNode) return false;
-        if (outputNode != motif.outputNode) return false;
-        if (inputNodeType != null ? !inputNodeType.equals(motif.inputNodeType) : motif.inputNodeType != null)
-            return false;
-        if (outputNodeType != null ? !outputNodeType.equals(motif.outputNodeType) : motif.outputNodeType != null)
-            return false;
-        if (relationshipType != null ? !relationshipType.equals(motif.relationshipType) : motif.relationshipType != null)
-            return false;
-        if (stringRepresentation != null ? !stringRepresentation.equals(motif.stringRepresentation) : motif.stringRepresentation != null)
-            return false;
+        return depth == motif.depth && inputNode == motif.inputNode && outputNode == motif.outputNode && !(inputNodeType != null ? !inputNodeType.equals(motif.inputNodeType) : motif.inputNodeType != null) && !(outputNodeType != null ? !outputNodeType.equals(motif.outputNodeType) : motif.outputNodeType != null) && !(relationshipType != null ? !relationshipType.equals(motif.relationshipType) : motif.relationshipType != null) && !(stringRepresentation != null ? !stringRepresentation.equals(motif.stringRepresentation) : motif.stringRepresentation != null);
 
-        return true;
     }
 
     @Override

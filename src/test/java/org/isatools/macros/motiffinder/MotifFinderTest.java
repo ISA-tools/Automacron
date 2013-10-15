@@ -271,6 +271,8 @@ public class MotifFinderTest {
         MotifFinder motifFinder = new AlternativeCompleteMotifFinder(4);
         motifFinder.performAnalysis(new DBGraph(mixedRelationTestNode), new GraphMLCreator(new File("data/test.xml")));
 
+        System.out.println(mixedRelationTestNode.getRelationships().iterator().next().getType());
+
         Map<String, Motif> motifs = motifFinder.getMotifs();
 
         printMotifs(motifs);
@@ -297,9 +299,9 @@ public class MotifFinderTest {
 
         Map<String, Motif> motifs = motifFinder.getMotifs();
 
-//        printMotifs(motifs);
+        printMotifs(motifs);
 
-//        System.out.println(motifs.size());
+        System.out.println(motifs.size());
 
         assertTrue("Awww, motif size not as expected", motifs.size() == 3);
     }
@@ -314,7 +316,7 @@ public class MotifFinderTest {
 
         printMotifs(motifs);
 
-        assertTrue("Awww, motif size not as expected", motifs.size() == 15);
+        assertTrue("Awww, motif size not as expected.", motifs.size() == 8);
     }
 
     @Test
@@ -340,7 +342,7 @@ public class MotifFinderTest {
         Map<String, Motif> motifs = motifFinder.getMotifs();
 
         printMotifs(motifs);
-        assertTrue("Awww, motif size not as expected", motifs.size() == 9);
+        assertTrue("Awww, motif size not as expected", motifs.size() == 7);
     }
 
     @Test
@@ -352,19 +354,18 @@ public class MotifFinderTest {
 
         System.out.println();
         printMotifs(motifs);
-        assertTrue("Awww, motif size not as expected", motifs.size() == 7);
+        assertTrue("Awww, motif size not as expected", motifs.size() == 12);
     }
 
     @Test
     public void testLargeBranchAndMergeTest() {
-        AlternativeCompleteMotifFinder motifFinder = new AlternativeCompleteMotifFinder(3);
+        AlternativeCompleteMotifFinder motifFinder = new AlternativeCompleteMotifFinder(4);
         motifFinder.performAnalysis(new DBGraph(largeBranchAndMergeTestNode), new GraphMLCreator(new File("data/test.xml")));
 
         Map<String, Motif> motifs = motifFinder.getMotifs();
 
-        System.out.println();
         printMotifs(motifs);
-         assertTrue("Awww, motif size not as expected", motifs.size() == 3);
+        assertTrue("Awww, motif size not as expected", motifs.size() == 5);
     }
 
     @Test
@@ -378,7 +379,7 @@ public class MotifFinderTest {
 
         printMotifs(motifs);
 
-        assertTrue("Awww, motif size not as expected", motifs.size() == 15);
+        assertTrue("Awww, motif size not as expected", motifs.size() == 22);
     }
 
     @Test

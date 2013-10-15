@@ -108,7 +108,8 @@ public abstract class CommonTraversalUtils {
         // we should check how many times this relationship is defined, since this will support the branches.
         // should we also check that the relation is going to the same node type?
 
-        String key = originNode.getId() + ":" + targetNode.getId() + relationship.toString();
+        String key = originNode.getId() + ":" + targetNode.getId() + ":" + relationship.getType().toString();
+
         if (relationshipCache.containsKey(key)) {
             return relationshipCache.get(key);
 

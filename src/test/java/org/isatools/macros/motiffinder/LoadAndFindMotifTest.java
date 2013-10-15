@@ -72,7 +72,8 @@ public class LoadAndFindMotifTest {
         printMotifsToHTML(motifs, totalTime + " ms");
         System.out.println("###############");
 
-        assertTrue("Awww, motif size not as expected", motifs.size() == 78);
+        System.out.println(motifs.size());
+        assertTrue("Awww, motif size not as expected", motifs.size() == 51);
     }
 
     private void printMotifs(Map<String, Motif> motifs) {

@@ -68,22 +68,26 @@ public class AlternativeCompleteMotifFinder extends CommonTraversalUtils impleme
             if (motif == null || depth <= maxNodeThreshold) {
 
                 if (originNode.hasProperty("type")) {
+
                     // we really want to be calculating the number of nodes in versus nodes out.
                     Map<String, Set<Node>> outgoingRelationshipCount = calculateNumberOfRelationshipsInDirection(
                             relationship, originNode, targetNode, Direction.INCOMING, graphMLCreator);
 
                     // we want to check both the motif on its own and the motif in combination with others.
+
                     for (String key : outgoingRelationshipCount.keySet()) {
                         for (Node outgoingNode : outgoingRelationshipCount.get(key)) {
                             Motif subMotif = new Motif(originNode, relationship.getType(), outgoingNode);
 
                             if (motif == null) {
                                 motif = subMotif;
+                                addGraphMotif(dbGraph, new Motif(motif));
                             } else {
                                 motif.addSubMotif(subMotif);
                             }
 
                             subMotif.setDepth(depth);
+
                             addGraphMotif(dbGraph, subMotif);
 
                             Iterable<Relationship> relationshipsOfOriginNode = outgoingNode.getRelationships(Direction.INCOMING);
@@ -100,10 +104,12 @@ public class AlternativeCompleteMotifFinder extends CommonTraversalUtils impleme
             }
         } catch (Exception e) {
             // skip over this error.
+            e.printStackTrace();
         }
     }
 
     private void addGraphMotif(DBGraph dbGraph, Motif motif) {
+
         graphMotifs.get(dbGraph).add(motif);
     }
 
